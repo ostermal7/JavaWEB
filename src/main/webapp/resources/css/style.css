@@ -166,3 +166,25 @@ TD{
     margin: 1rem 1rem 1rem 0rem;
     padding: 1rem 2rem 1rem 3rem;
 }
+.container-login{
+    margin-left: 30rem;
+    padding: 1.6rem;
+}
+.log-and-pass{
+    width: 20rem;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: flex;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.log-btn{
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 20rem;
+}
+

@@ -5,6 +5,14 @@
 <head>
     <title>Student creating</title>
     <link rel="stylesheet" type="text/css" href="/resources/css/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script>
+        $( function() {
+            $( "#date-ofadmission" ).datepicker();
+        } );
+    </script>
 </head>
 <body>
 <aside class="navigation">
@@ -49,11 +57,16 @@
                     <button class="send-button">Применить</button>
                 </c:otherwise>
             </c:choose>
+            <c:choose>
+                <c:when test="${message==1}">
+                    <h3>Поля не должны быть пустыми</h3>
+                </c:when>
+            </c:choose>
 
     </form>
 </main>
 <aside class="logout">
-    <a href="#" class="logout-btn">Logout</a>
+    <a href="/logout" class="logout-btn">Logout</a>
 </aside>
 </body>
 </html>

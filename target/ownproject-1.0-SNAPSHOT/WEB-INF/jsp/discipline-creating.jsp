@@ -39,11 +39,16 @@
                 <button class="send-button">Применить</button>
             </c:otherwise>
         </c:choose>
+            <c:choose>
+                <c:when test="${message==1}">
+                    <h3>Поля не должны быть пустыми</h3>
+                </c:when>
+            </c:choose>
 
     </form>
 </main>
 <aside class="logout">
-    <a href="#" class="logout-btn">Logout</a>
+    <a href="/logout" class="logout-btn">Logout</a>
 </aside>
 </body>
 

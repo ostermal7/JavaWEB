@@ -24,7 +24,6 @@ public class DisciplinesController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String ids=req.getParameter("deleteDiscHidden");
-        System.out.println(ids);
         String[] idsStr=ids.split(",");
         for (String id:idsStr) {
             DBManager.deleteDiscipline(id);

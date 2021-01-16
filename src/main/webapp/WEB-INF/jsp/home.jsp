@@ -16,11 +16,11 @@
     <div class="container">
         <a href="/students" class="title-links">Студенты</a>
         <a href="/disciplines" class="title-links">Дисциплины</a>
-        <a href="" class="title-links">Семестры</a>
+        <a href="/semester-selection" class="title-links">Семестры</a>
     </div>
 </main>
 <aside class="logout">
-    <a href="#" class="logout-btn">Logout</a>
+    <a href="/logout" class="logout-btn">Logout</a>
 </aside>
 </body>
 </html>
