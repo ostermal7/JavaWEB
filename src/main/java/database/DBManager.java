@@ -333,6 +333,13 @@ public class DBManager {
 }
 
 /*
+
+SELECT disc.id as id_discipline, disc.disciplines as disciplines, disc.status as discipline_status, s.id as semestr_id, s.name as sem_name, s.duration, s.status as sem_status FROM students_15.semestr_discipline as sd
+left join discipline as disc on sd.id_discipline=disc.id
+left join semestr as s on sd.id_semestr=s.id
+where s.id="+semesterId+" and s.status='1'
+
+
 SELECT sd.id as sem_dis_id, sd.id_discipline, d.disciplines, d.status as disc_status, sd.id_semestr as semester_id,sem.name as semester_name, sem.status as sem_status, st.id as student_id, st.status as student_status, m.mark FROM mark as m
 left join student as st on m.id_student=st.id
 left join semestr_discipline as sd on m.id_semestr_discipline=sd.id
