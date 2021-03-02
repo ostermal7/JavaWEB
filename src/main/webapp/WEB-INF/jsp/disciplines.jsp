@@ -28,6 +28,7 @@
             </tr>
             </c:forEach>
         </table>
+        <c:if test="${idRole==1}">
         <div class="disc-buttons">
             <form method="get" action="/discipline-creating" class="disc-buttons">
                 <button>Создать дисциплину</button>
@@ -37,6 +38,7 @@
 
             <input type="submit" class="button-like-input" onclick="deleteDisciplines()" value="Удалить выбранную дисциплину">
         </div>
+        </c:if>
     </div>
     <form action="/disciplines" method="post" id="deleteDiscForm">
         <input type="hidden" id="deleteDiscHidden" name="deleteDiscHidden">
@@ -46,7 +48,7 @@
     </form>
 </main>
 <aside class="logout">
-    <a href="#" class="logout-btn">Logout</a>
+    <a href="/logout" class="logout-btn">Logout</a>
 </aside>
 </body>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

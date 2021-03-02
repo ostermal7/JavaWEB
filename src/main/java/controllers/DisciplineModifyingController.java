@@ -19,6 +19,7 @@ public class DisciplineModifyingController extends HttpServlet {
         req.setAttribute("modifDiscipline",disc);
 
         req.getRequestDispatcher("WEB-INF/jsp/discipline-creating.jsp").forward(req,resp);
+          
     }
 
     @Override

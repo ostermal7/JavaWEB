@@ -9,7 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Date;
+import java.text.DateFormat;
+import java.text.Format;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @WebServlet (name = "StudentCreatingController",urlPatterns = "/student-creating")
 public class StudentCreatingController extends HttpServlet {
@@ -25,8 +29,24 @@ public class StudentCreatingController extends HttpServlet {
         String newSername=req.getParameter("newSername");
         String newName=req.getParameter("newName");
         String newGroup=req.getParameter("newGroup");
-        Date newDate= Date.valueOf(req.getParameter("newDate"));
-        DBManager.createNewStudent(newSername,newName,newGroup,newDate);
+        String newDate= req.getParameter("newDate");
+        DateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+        Date date = null;
+        try {
+            date = format.parse(newDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String dateString= formatter.format(date);
+        if (newSername==null||newSername.equals("")||newName==null||newName.equals("")
+                ||newGroup==null||newGroup.equals("")||newDate==null||newDate.equals("")){
+            req.setAttribute("message","1");
+            req.setAttribute("isCreated","1");
+            req.getRequestDispatcher("WEB-INF/jsp/student-creating.jsp").forward(req,resp);
+            return;
+        }
+        DBManager.createNewStudent(newSername,newName,newGroup,dateString);
         resp.sendRedirect("/students");
     }
 }
